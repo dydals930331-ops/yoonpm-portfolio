@@ -1,0 +1,977 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=Inter:wght@400;500&display=swap');
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.css');
+
+/* =============================================
+   CSS 변수 — 색상/폰트 변경은 여기서만
+   ============================================= */
+:root {
+  --color-bg: #FBF6EC;
+  --color-surface: #F5EDD8;
+  --color-surface-alt: #EFE5CC;
+  --color-accent: #E88B0A;
+  --color-accent-hover: #C97800;
+  --color-border: #DDD0B8;
+  --color-text: #1A1A1A;
+  --color-text-body: #2D2520;
+  --color-text-muted: #7A6E5E;
+
+  --font-heading: 'Space Grotesk', 'Pretendard', sans-serif;
+  --font-body: 'Pretendard', 'Inter', sans-serif;
+
+  --max-width: 1200px;
+  --section-padding: 80px 0;
+  --border-radius: 8px;
+}
+
+/* =============================================
+   Reset & Base
+   ============================================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* =============================================
+   Typography
+   ============================================= */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-family: var(--font-heading);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: 16px;
+}
+
+.section-desc {
+  color: var(--color-text-muted);
+  font-size: 15px;
+  max-width: 560px;
+}
+
+/* =============================================
+   Section Base
+   ============================================= */
+section {
+  padding: var(--section-padding);
+}
+
+section:nth-child(even) {
+  background-color: var(--color-surface-alt);
+}
+
+.section-header {
+  margin-bottom: 48px;
+}
+
+/* =============================================
+   Hero
+   ============================================= */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: var(--color-bg);
+  padding: 0 24px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(232, 139, 10, 0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-inner {
+  max-width: 720px;
+}
+
+.hero-role-tag {
+  display: inline-block;
+  padding: 6px 16px;
+  background-color: rgba(232, 139, 10, 0.10);
+  border: 1px solid var(--color-accent);
+  border-radius: 100px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  color: var(--color-accent);
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+
+.hero-name {
+  font-family: var(--font-heading);
+  font-size: clamp(48px, 8vw, 88px);
+  font-weight: 700;
+  color: var(--color-text);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.hero-tagline {
+  font-family: var(--font-body);
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--color-text-muted);
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+.hero-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  background-color: var(--color-accent);
+  color: #1A1A1A;
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  border-radius: 4px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  letter-spacing: 0.04em;
+}
+
+.hero-cta:hover {
+  background-color: var(--color-accent-hover);
+  color: #1A1A1A;
+  transform: translateY(-1px);
+}
+
+.hero-cta svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* =============================================
+   Video Embed — 공통
+   ============================================= */
+.video-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-border);
+}
+
+.video-wrapper iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.video-meta {
+  margin-top: 20px;
+}
+
+.video-title {
+  font-family: var(--font-heading);
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 8px;
+}
+
+.video-desc {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+}
+
+/* =============================================
+   Featured Video
+   ============================================= */
+.featured {
+  background-color: var(--color-bg);
+}
+
+.featured-video-wrap {
+  max-width: 85%;
+  margin: 0 auto;
+}
+
+/* =============================================
+   Long-form 섹션
+   ============================================= */
+.longform {
+  background-color: var(--color-surface-alt);
+}
+
+.longform-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+}
+
+.longform-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.video-caption {
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--color-text-muted);
+  border-left: 2px solid var(--color-accent);
+  padding-left: 12px;
+  line-height: 1.6;
+}
+
+/* =============================================
+   Featured Video 섹션
+   ============================================= */
+.featured-video {
+  background-color: var(--color-bg);
+}
+
+.featured-video-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.12);
+}
+
+.featured-video-wrap video {
+  width: 100%;
+  display: block;
+  max-height: 540px;
+  object-fit: contain;
+}
+
+/* =============================================
+   Short-form 섹션
+   ============================================= */
+.shortform {
+  background-color: var(--color-bg);
+}
+
+/* =============================================
+   Instagram Phone Mockup (Short-form)
+   ============================================= */
+.shortform-grid {
+  display: flex;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.ig-mockup-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.ig-mockup-label {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+/* 폰 외곽 프레임 */
+.ig-phone {
+  position: relative;
+  width: 270px;
+  aspect-ratio: 9 / 19.5;
+  background: #000;
+  border-radius: 36px;
+  border: 2px solid #333;
+  box-shadow:
+    0 0 0 6px #1a1a1a,
+    0 24px 60px rgba(0,0,0,0.35),
+    inset 0 0 0 1px #444;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  font-family: var(--font-body);
+}
+
+/* 상단 바 */
+.ig-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 14px 12px 8px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.55) 0%, transparent 100%);
+}
+
+.ig-avatar-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.ig-avatar-wrap::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  z-index: 0;
+}
+
+.ig-avatar {
+  position: relative;
+  z-index: 1;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #555;
+  border: 1.5px solid #000;
+}
+
+.ig-username {
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.01em;
+}
+
+.ig-follow-btn {
+  font-size: 11px;
+  font-weight: 700;
+  color: #fff;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.7);
+  border-radius: 6px;
+  padding: 3px 10px;
+  cursor: default;
+  letter-spacing: 0.02em;
+}
+
+.ig-more {
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  cursor: default;
+}
+
+/* 영상 영역 — 폰 전체 채움 */
+.ig-video-area {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.ig-video-area iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+}
+
+/* 우측 액션 버튼 */
+.ig-actions {
+  position: absolute;
+  right: 10px;
+  bottom: 80px;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.ig-action {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  cursor: default;
+}
+
+.ig-action svg {
+  width: 22px;
+  height: 22px;
+  color: #fff;
+  filter: drop-shadow(0 1px 2px rgba(0,0,0,0.5));
+}
+
+.ig-action span {
+  font-size: 10px;
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+
+/* 음악 디스크 (회전) */
+.ig-music-disc {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  overflow: hidden;
+  animation: spin 4s linear infinite;
+}
+
+.ig-music-disc svg {
+  width: 100%;
+  height: 100%;
+  color: #555;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* 하단 정보 */
+.ig-bottombar {
+  position: absolute;
+  left: 0;
+  right: 48px;
+  bottom: 0;
+  z-index: 10;
+  padding: 10px 12px 6px;
+  background: linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 100%);
+}
+
+.ig-caption-text {
+  font-size: 11px;
+  color: #fff;
+  line-height: 1.4;
+  margin-bottom: 5px;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.7);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ig-caption-text strong {
+  font-weight: 700;
+}
+
+.ig-music-bar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 8px;
+}
+
+.ig-music-bar svg {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.ig-music-bar span {
+  font-size: 10px;
+  color: #fff;
+  opacity: 0.85;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* 하단 네비 바 */
+.ig-nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 6px 0 10px;
+  border-top: 1px solid rgba(255,255,255,0.15);
+  width: calc(100% + 48px);
+  margin-left: -12px;
+  padding-left: 12px;
+  padding-right: 60px;
+}
+
+.ig-nav-bar svg {
+  color: rgba(255,255,255,0.9);
+  flex-shrink: 0;
+}
+
+.ig-nav-profile {
+  width: 22px;
+  height: 22px;
+  border-radius: 4px;
+  background: #555;
+  flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+  .shortform-grid {
+    gap: 32px;
+  }
+  .ig-phone {
+    width: 220px;
+  }
+}
+
+/* =============================================
+   Thumbnail Gallery
+   ============================================= */
+.gallery {
+  background-color: var(--color-surface-alt);
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-border);
+  cursor: pointer;
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.03);
+}
+
+.gallery-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(232, 139, 10, 0.30);
+  display: flex;
+  align-items: flex-end;
+  padding: 16px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.gallery-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+.gallery-overlay span {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+}
+
+/* =============================================
+   Photography
+   ============================================= */
+.photography {
+  background-color: var(--color-bg);
+}
+
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.photo-item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  background-color: var(--color-border);
+  cursor: pointer;
+}
+
+.photo-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.photo-item:hover img {
+  transform: scale(1.04);
+}
+
+.photo-item:hover .gallery-overlay {
+  opacity: 1;
+}
+
+@media (max-width: 768px) {
+  .photo-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+}
+
+/* =============================================
+   Tool Stack
+   ============================================= */
+.toolstack {
+  background-color: var(--color-bg);
+}
+
+.tool-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 640px;
+}
+
+.tool-item {
+  display: grid;
+  grid-template-columns: 200px 1fr auto;
+  align-items: center;
+  gap: 16px;
+}
+
+.tool-name {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-text);
+}
+
+.tool-bar-track {
+  height: 4px;
+  background-color: var(--color-border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.tool-bar-fill {
+  height: 100%;
+  background-color: var(--color-accent);
+  border-radius: 2px;
+  transition: width 0.8s ease;
+}
+
+.tool-level {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+  min-width: 60px;
+  text-align: right;
+}
+
+/* =============================================
+   About
+   ============================================= */
+.about {
+  background-color: var(--color-surface-alt);
+}
+
+.about-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.about-block {
+  margin-bottom: 32px;
+}
+
+.about-block-title {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: 12px;
+}
+
+.about-block p {
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.8;
+}
+
+.about-ref-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.about-ref-list li {
+  font-size: 14px;
+  color: var(--color-text-body);
+  padding-left: 16px;
+  position: relative;
+}
+
+.about-ref-list li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--color-accent);
+}
+
+.about-mindset {
+  font-size: 15px;
+  color: var(--color-text-body);
+  line-height: 1.8;
+  font-style: italic;
+  border-left: 2px solid var(--color-accent);
+  padding-left: 16px;
+}
+
+/* =============================================
+   Contact
+   ============================================= */
+.contact {
+  background-color: var(--color-bg);
+  text-align: center;
+}
+
+.contact-note {
+  font-size: 14px;
+  color: var(--color-text-muted);
+  margin-bottom: 32px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 4px;
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.contact-link:hover {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+.contact-divider {
+  width: 1px;
+  height: 20px;
+  background-color: var(--color-border);
+}
+
+/* =============================================
+   Divider
+   ============================================= */
+.section-divider {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-accent);
+  margin: 16px 0 0;
+}
+
+/* =============================================
+   Responsive — 768px
+   ============================================= */
+@media (max-width: 768px) {
+  :root {
+    --section-padding: 60px 0;
+  }
+
+  .featured-video-wrap {
+    max-width: 100%;
+  }
+
+  .longform-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .shortform-grid {
+    gap: 24px;
+  }
+
+  .shortform-item {
+    width: 70%;
+    max-width: 300px;
+  }
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-item {
+    grid-template-columns: 1fr auto;
+    grid-template-rows: auto auto;
+    gap: 8px;
+  }
+
+  .tool-item .tool-name {
+    grid-column: 1;
+    grid-row: 1;
+  }
+
+  .tool-item .tool-level {
+    grid-column: 2;
+    grid-row: 1;
+    text-align: right;
+  }
+
+  .tool-item .tool-bar-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .about-inner {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+/* =============================================
+   Print — PDF 출력용
+   ============================================= */
+@media print {
+  body {
+    background-color: #fff;
+    color: #111;
+  }
+
+  .hero {
+    min-height: auto;
+    padding: 60px 24px;
+  }
+
+  .hero-name,
+  .section-title,
+  .video-title {
+    color: #111;
+  }
+
+  .hero-tagline,
+  .video-desc,
+  .section-desc,
+  .video-caption,
+  .contact-note {
+    color: #555;
+  }
+
+  .hero-cta {
+    display: none;
+  }
+
+  /* 영상 iframe 숨기고 URL 텍스트로 대체 */
+  .video-wrapper {
+    display: none;
+  }
+
+  .video-print-url {
+    display: block !important;
+    font-size: 13px;
+    color: #555;
+    margin-top: 8px;
+    padding: 10px 14px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+  }
+
+  .gallery-item img {
+    border-radius: 0;
+  }
+
+  .gallery-overlay {
+    display: none;
+  }
+
+  section {
+    page-break-inside: avoid;
+    padding: 40px 0;
+  }
+
+  .featured,
+  .longform,
+  .shortform {
+    page-break-before: always;
+  }
+
+  .hero::before {
+    display: none;
+  }
+}
+
+/* 화면에서는 print-url 숨김 */
+.video-print-url {
+  display: none;
+}

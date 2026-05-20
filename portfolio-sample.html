@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>윤용민 — 영상 PD 포트폴리오</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    /* ── Instagram 프리뷰 오버레이 ── */
+    .ig-preview {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+      z-index: 5;
+    }
+    .ig-preview:hover { opacity: 0.9; }
+    .ig-preview svg { width: 44px; height: 44px; color: #fff; }
+    .ig-preview-play {
+      width: 52px; height: 52px;
+      background: rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      backdrop-filter: blur(4px);
+    }
+    .ig-preview-play svg { width: 22px; height: 22px; }
+    .ig-preview-text {
+      font-size: 11px;
+      color: rgba(255,255,255,0.85);
+      font-family: var(--font-body);
+      text-align: center;
+      padding: 0 12px;
+    }
+
+    /* ── 공식 Instagram 임베드 위젯 래퍼 ── */
+    .ig-embed-section {
+      margin-top: 48px;
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+    .ig-embed-card {
+      width: 320px;
+    }
+    .ig-embed-card-label {
+      font-family: var(--font-heading);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-text-muted);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    .instagram-media {
+      border-radius: 12px !important;
+      min-width: 0 !important;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <div class="hero-inner">
+      <span class="hero-role-tag">영상 PD</span>
+      <h1 class="hero-name">윤용민</h1>
+      <p class="hero-tagline">롱폼부터 숏폼까지, 찍고 자르고 또 찍습니다</p>
+      <a href="#featured" class="hero-cta">
+        대표작 보기
+        <svg viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M8 3L8 13M8 13L4 9M8 13L12 9" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </div>
+  </section>
+
+  <!-- FEATURED VIDEO -->
+  <section class="featured-video" id="featured">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Featured Work</span>
+        <h2 class="section-title">대표작</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="featured-video-wrap">
+        <video
+          src="featured.mp4"
+          controls
+          playsinline
+          preload="metadata"
+          poster=""
+        ></video>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHORT-FORM -->
+  <section class="shortform" id="shortform">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Short-Form</span>
+        <h2 class="section-title">숏폼 편집</h2>
+        <div class="section-divider"></div>
+      </div>
+
+      <!-- 폰 목업 (프리뷰) -->
+      <div class="shortform-grid">
+
+        <!-- 숏폼 1 -->
+        <div class="ig-mockup-wrap">
+          <div class="ig-phone">
+            <div class="ig-topbar">
+              <div class="ig-avatar-wrap"><div class="ig-avatar"></div></div>
+              <span class="ig-username">@윤용민</span>
+              <button class="ig-follow-btn">팔로우</button>
+              <span class="ig-more">···</span>
+            </div>
+            <div class="ig-video-area">
+              <!-- 인스타 iframe 차단 → 클릭 시 새탭 열기 -->
+              <a class="ig-preview" href="https://www.instagram.com/reel/DLICqiSpNKX/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                <div class="ig-preview-play">
+                  <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p class="ig-preview-text">Instagram에서 보기</p>
+              </a>
+            </div>
+            <div class="ig-actions">
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>1.2k</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>34</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>공유</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="ig-music-disc">
+                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="#000" opacity="0.5"/></svg>
+              </div>
+            </div>
+            <div class="ig-bottombar">
+              <p class="ig-caption-text"><strong>윤용민</strong> Reel 01 · Instagram Reels</p>
+              <div class="ig-music-bar">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Original Audio · 윤용민</span>
+              </div>
+              <div class="ig-nav-bar">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <div class="ig-nav-profile"></div>
+              </div>
+            </div>
+          </div>
+          <p class="ig-mockup-label">Reel 01</p>
+        </div>
+
+        <!-- 숏폼 2 -->
+        <div class="ig-mockup-wrap">
+          <div class="ig-phone">
+            <div class="ig-topbar">
+              <div class="ig-avatar-wrap"><div class="ig-avatar"></div></div>
+              <span class="ig-username">@윤용민</span>
+              <button class="ig-follow-btn">팔로우</button>
+              <span class="ig-more">···</span>
+            </div>
+            <div class="ig-video-area">
+              <a class="ig-preview" href="https://www.instagram.com/reel/C7LqXMwJTmf/" target="_blank" rel="noopener">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+                </svg>
+                <div class="ig-preview-play">
+                  <svg viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <p class="ig-preview-text">Instagram에서 보기</p>
+              </a>
+            </div>
+            <div class="ig-actions">
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <span>2.4k</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                <span>58</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+                <span>공유</span>
+              </div>
+              <div class="ig-action">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+              </div>
+              <div class="ig-music-disc">
+                <svg viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="3" fill="#000" opacity="0.5"/></svg>
+              </div>
+            </div>
+            <div class="ig-bottombar">
+              <p class="ig-caption-text"><strong>윤용민</strong> Reel 02 · Instagram Reels</p>
+              <div class="ig-music-bar">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="12" height="12"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></svg>
+                <span>Original Audio · 윤용민</span>
+              </div>
+              <div class="ig-nav-bar">
+                <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="22" height="22"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                <div class="ig-nav-profile"></div>
+              </div>
+            </div>
+          </div>
+          <p class="ig-mockup-label">Reel 02</p>
+        </div>
+
+      </div>
+
+      <!-- 공식 Instagram 임베드 위젯 (페이지 내 바로 보기) -->
+      <div class="ig-embed-section">
+        <div class="ig-embed-card">
+          <p class="ig-embed-card-label">▶ 페이지 내 바로 보기</p>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/DLICqiSpNKX/?utm_source=ig_embed"
+            data-instgrm-version="14"
+            style="background:#FFF;border:0;border-radius:12px;margin:0 auto;max-width:320px;min-width:0;padding:0;width:100%;">
+          </blockquote>
+        </div>
+        <div class="ig-embed-card">
+          <p class="ig-embed-card-label">▶ 페이지 내 바로 보기</p>
+          <blockquote class="instagram-media"
+            data-instgrm-permalink="https://www.instagram.com/reel/C7LqXMwJTmf/?utm_source=ig_embed"
+            data-instgrm-version="14"
+            style="background:#FFF;border:0;border-radius:12px;margin:0 auto;max-width:320px;min-width:0;padding:0;width:100%;">
+          </blockquote>
+        </div>
+      </div>
+      <script async src="//www.instagram.com/embed.js"></script>
+
+    </div>
+  </section>
+
+  <!-- PHOTOGRAPHY -->
+  <section class="photography" id="photography">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Photography</span>
+        <h2 class="section-title">사진 촬영</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="photo-grid" id="photoGrid"></div>
+    </div>
+  </section>
+
+  <script>
+    (function() {
+      const files = [
+        'KakaoTalk_Photo_2026-05-20-11-24-35 001.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 002.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 003.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 004.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 005.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 006.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 007.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 008.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 009.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 010.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-36 011.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 012.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 013.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 014.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 015.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 016.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 017.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 018.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 019.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 020.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 021.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-37 022.jpeg',
+        'KakaoTalk_Photo_2026-05-20-11-24-38 023.jpeg',
+      ];
+      const grid = document.getElementById('photoGrid');
+      files.forEach(function(name, i) {
+        const item = document.createElement('div');
+        item.className = 'photo-item';
+        item.innerHTML = `
+          <img src="photos/${encodeURIComponent(name)}" alt="사진 촬영 ${String(i+1).padStart(2,'0')}" loading="lazy" />
+          <div class="gallery-overlay"><span>${String(i+1).padStart(2,'0')}</span></div>
+        `;
+        grid.appendChild(item);
+      });
+    })();
+  </script>
+
+  <!-- TOOL STACK -->
+  <section class="toolstack" id="tools">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Skills</span>
+        <h2 class="section-title">Tool Stack</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="tool-list">
+        <div class="tool-item">
+          <span class="tool-name">Premiere Pro</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 30%;"></div></div>
+          <span class="tool-level">초급</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Illustrator</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 30%;"></div></div>
+          <span class="tool-level">초급</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Photoshop</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 30%;"></div></div>
+          <span class="tool-level">초급</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Figma</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 12%;"></div></div>
+          <span class="tool-level">배우는 단계</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">카메라</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 60%;"></div></div>
+          <span class="tool-level">중급</span>
+        </div>
+        <div class="tool-item">
+          <span class="tool-name">Lr</span>
+          <div class="tool-bar-track"><div class="tool-bar-fill" style="width: 60%;"></div></div>
+          <span class="tool-level">중급</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">About</span>
+        <h2 class="section-title">소개</h2>
+        <div class="section-divider"></div>
+      </div>
+      <div class="about-inner">
+        <div>
+          <div class="about-block">
+            <p class="about-block-title">요즘 즐기는 롱폼 영상</p>
+            <ul class="about-ref-list">
+              <li>
+                <strong>'안녕하세요원이입니다잘부탁드립니다'</strong><br>
+                <span style="font-size:13px;color:var(--color-text-muted);line-height:1.6;">중소형 아이돌의 바이럴이 되어가는 과정을 관찰 중</span>
+              </li>
+            </ul>
+          </div>
+          <div class="about-block">
+            <p class="about-block-title">마인드셋</p>
+            <p class="about-mindset">요구되는 수준은 초급자 단계입니다. 시간을 많이 써야하고 노력해야하는 단계죠. 이 시간을 제대로 사용하여 옆에서 도움 될 수 있도록 하겠습니다.</p>
+          </div>
+        </div>
+        <div>
+          <!-- 프로필 사진 슬롯 (선택) -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-label">Contact</span>
+        <h2 class="section-title">연락하기</h2>
+        <div class="section-divider" style="margin: 16px auto 0;"></div>
+      </div>
+      <div class="contact-links">
+        <a href="tel:01085364707" class="contact-link">010-8536-4707</a>
+        <span class="contact-divider"></span>
+        <a href="mailto:dydals930331@gmail.com" class="contact-link">dydals930331@gmail.com</a>
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>
